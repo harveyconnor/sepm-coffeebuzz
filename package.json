@@ -5,12 +5,13 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug"
   },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.2",
-    "react-native-paper": "^2.15.0",
+    "react-native-navigation": "^2.16.0",
     "react-native-vector-icons": "^6.4.2"
   },
   "devDependencies": {
