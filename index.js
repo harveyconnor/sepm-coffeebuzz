@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { AppRegistry } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
-import App from './src/App';
+import { Navigation } from "react-native-navigation";
 
-export default function Main() {
-  return (
-    <PaperProvider>
-      <App />
-    </PaperProvider>
-  );
-}
+import App from "./src/App";
 
-AppRegistry.registerComponent('CoffeeBuzz', () => Main);
+Navigation.registerComponent(`navigation.playground.WelcomeScreen`, () => App);
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: "navigation.playground.WelcomeScreen"
+      }
+    }
+  });
+});
