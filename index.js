@@ -36,15 +36,21 @@ Navigation.events().registerAppLaunchedListener(() => {
         bottomTabs: {
           children: [
             {
-              component: {
-                name   : MENU_SCREEN,
-                options: {
-                  bottomTab: {
-                    text  : 'Menu',
-                    icon  : iconsMap['restaurant-menu'],
-                    testID: 'FIRST_TAB_BAR_BUTTON',
+              stack: {
+                children: [
+                  {
+                    component: {
+                      name   : MENU_SCREEN,
+                      options: {
+                        bottomTab: {
+                          text  : 'Menu',
+                          icon  : iconsMap['restaurant-menu'],
+                          testID: 'FIRST_TAB_BAR_BUTTON',
+                        },
+                      },
+                    },
                   },
-                },
+                ],
               },
             },
             {
