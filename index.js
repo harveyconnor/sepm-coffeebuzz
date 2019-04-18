@@ -28,6 +28,14 @@ Navigation.events().registerAppLaunchedListener(() => {
     bottomTabs: {
       backgroundColor: materialColors.whitePrimary,
     },
+    topBar: {
+      background: {
+        color: materialColors.whitePrimary,
+      },
+      title: {
+        color: materialColors.blackPrimary,
+      },
+    },
   });
 
   iconsLoaded.then(() => {
