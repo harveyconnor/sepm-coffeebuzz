@@ -1,5 +1,5 @@
 import { Navigation } from 'react-native-navigation';
-import { materialColors } from 'react-native-typography';
+import { materialColors, iOSColors } from 'react-native-typography';
 
 import { iconsLoaded, iconsMap } from './src/helpers/icons';
 
@@ -78,9 +78,11 @@ Navigation.events().registerAppLaunchedListener(() => {
                 name   : CART_SCREEN,
                 options: {
                   bottomTab: {
-                    text  : 'Cart',
-                    icon  : iconsMap['shopping-cart'],
-                    testID: 'THIRD_TAB_BAR_BUTTON',
+                    text      : 'Cart',
+                    icon      : iconsMap['shopping-cart'],
+                    badge     : '1', // Test icon to show that badge works
+                    badgeColor: iOSColors.blue,
+                    testID    : 'THIRD_TAB_BAR_BUTTON',
                   },
                 },
               },
