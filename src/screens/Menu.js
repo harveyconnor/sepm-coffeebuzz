@@ -2,23 +2,48 @@ import React, { Component } from 'react';
 import {
   View, ScrollView, Text, StyleSheet,
 } from 'react-native';
+import { material, materialColors } from 'react-native-typography';
 
 import ItemSlider from '../components/ItemSlider';
 
 const styles = StyleSheet.create({
   container: {
-    flex  : 1,
-    margin: 16,
+    flex: 1,
   },
-  item: {
-    alignItems     : 'center',
-    justifyContent : 'center',
-    alignSelf      : 'stretch',
-    margin         : 8,
-    padding        : 16,
-    backgroundColor: 'black',
+  title: {
+    padding: 16,
   },
 });
+
+const coffee = [
+  {
+    id  : '1001',
+    name: 'Cappuccino',
+  },
+  {
+    id  : '1002',
+    name: 'Latte',
+  },
+  {
+    id  : '1003',
+    name: 'Espresso',
+  },
+];
+
+const sandwiches = [
+  {
+    id  : '2001',
+    name: 'Ham & Cheese',
+  },
+  {
+    id  : '2002',
+    name: 'Schnitzel',
+  },
+  {
+    id  : '2003',
+    name: 'Turkey breast',
+  },
+];
 
 export default class Menu extends Component {
   static options() {
@@ -33,8 +58,11 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <ItemSlider />
+      <ScrollView style={styles.container}>
+        <Text style={[material.title, styles.title]}>Coffee</Text>
+        <ItemSlider items={coffee} />
+        <Text style={[material.title, styles.title]}>Sandwiches</Text>
+        <ItemSlider items={sandwiches} />
       </ScrollView>
     );
   }
