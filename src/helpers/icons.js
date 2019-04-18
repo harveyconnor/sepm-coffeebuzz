@@ -5,9 +5,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const navIconSize = __DEV__ === false && Platform.OS === 'android' ? PixelRatio.getPixelSizeForLayoutSize(40) : 40;
 const replaceSuffixPattern = /--(active|big|small|very-big)/g;
 const icons = {
-  'shopping-cart' : [navIconSize],
-  settings        : [navIconSize],
-  'free-breakfast': [navIconSize],
+  'shopping-cart'  : [navIconSize],
+  settings         : [navIconSize],
+  'free-breakfast' : [navIconSize],
+  'restaurant-menu': [navIconSize],
+  restaurant       : [navIconSize],
 };
 
 const iconsMap = {};

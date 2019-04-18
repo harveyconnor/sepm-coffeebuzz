@@ -12,14 +12,23 @@ Navigation.events().registerAppLaunchedListener(() => {
           children: [
             {
               component: {
-                name     : 'navigation.playground.WelcomeScreen',
-                passProps: {
-                  text: 'This is tab 2',
-                },
+                name   : 'navigation.playground.WelcomeScreen',
                 options: {
                   bottomTab: {
-                    text  : 'Tab 2',
-                    icon  : iconsMap['shopping-cart'],
+                    text  : 'Menu',
+                    icon  : iconsMap['restaurant-menu'],
+                    testID: 'FIRST_TAB_BAR_BUTTON',
+                  },
+                },
+              },
+            },
+            {
+              component: {
+                name   : 'navigation.playground.WelcomeScreen',
+                options: {
+                  bottomTab: {
+                    text  : 'Settings',
+                    icon  : iconsMap.settings,
                     testID: 'SECOND_TAB_BAR_BUTTON',
                   },
                 },
@@ -27,15 +36,12 @@ Navigation.events().registerAppLaunchedListener(() => {
             },
             {
               component: {
-                name     : 'navigation.playground.WelcomeScreen',
-                passProps: {
-                  text: 'This is tab 2',
-                },
+                name   : 'navigation.playground.WelcomeScreen',
                 options: {
                   bottomTab: {
                     text  : 'Cart',
                     icon  : iconsMap['shopping-cart'],
-                    testID: 'SECOND_TAB_BAR_BUTTON',
+                    testID: 'THIRD_TAB_BAR_BUTTON',
                   },
                 },
               },
