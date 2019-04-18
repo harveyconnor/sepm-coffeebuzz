@@ -4,7 +4,12 @@ import { materialColors } from 'react-native-typography';
 import App from './src/App';
 import { iconsLoaded, iconsMap } from './src/helpers/icons';
 
-Navigation.registerComponent('navigation.playground.WelcomeScreen', () => App);
+import registerScreens, {
+  CART_SCREEN, MENU_SCREEN, SETTINGS_SCREEN,
+} from './src/screens';
+
+registerScreens();
+
 Navigation.events().registerAppLaunchedListener(() => {
   iconsLoaded.then(() => {
     Navigation.setRoot({
@@ -13,7 +18,7 @@ Navigation.events().registerAppLaunchedListener(() => {
           children: [
             {
               component: {
-                name   : 'navigation.playground.WelcomeScreen',
+                name   : MENU_SCREEN,
                 options: {
                   bottomTab: {
                     text             : 'Menu',
@@ -29,7 +34,7 @@ Navigation.events().registerAppLaunchedListener(() => {
             },
             {
               component: {
-                name   : 'navigation.playground.WelcomeScreen',
+                name   : SETTINGS_SCREEN,
                 options: {
                   bottomTab: {
                     text             : 'Settings',
@@ -45,7 +50,7 @@ Navigation.events().registerAppLaunchedListener(() => {
             },
             {
               component: {
-                name   : 'navigation.playground.WelcomeScreen',
+                name   : CART_SCREEN,
                 options: {
                   bottomTab: {
                     text             : 'Cart',
