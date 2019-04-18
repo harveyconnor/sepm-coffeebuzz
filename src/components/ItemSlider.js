@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
 import {
-  FlatList, StyleSheet, Text, View,
+  Dimensions, FlatList, StyleSheet, Text, View,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { materialColors } from 'react-native-typography';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   container: {
-
+    backgroundColor: materialColors.whitePrimary,
   },
 });
 
