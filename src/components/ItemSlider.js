@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList, StyleSheet, Text, View,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   container: {
-    
-  }
-})
+
+  },
+});
 
 export default class ItemSlider extends PureComponent {
   static propTypes = {
@@ -37,7 +39,7 @@ export default class ItemSlider extends PureComponent {
 
     return (
       <FlatList
-        style={}
+        style={styles.container}
         data={items}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
