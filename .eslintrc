@@ -1,0 +1,9 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-return-assign": 0,
+    "key-spacing": ["error", { "align": "colon" }],
+    "react/prefer-stateless-function": 0,
+    "react/jsx-filename-extension": 0
+  }
+}
