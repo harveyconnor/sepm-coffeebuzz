@@ -11,7 +11,7 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'navigation.playground.WelcomeScreenn',
+              name: 'navigation.playground.WelcomeScreen',
               passProps: {
                 text: 'This is tab 2'
               },
@@ -26,7 +26,7 @@ Navigation.events().registerAppLaunchedListener(() => {
           },
         {
           component: {
-            name: 'navigation.playground.WelcomeScreenn',
+            name: 'navigation.playground.WelcomeScreen',
             passProps: {
               text: 'This is tab 2'
             },
