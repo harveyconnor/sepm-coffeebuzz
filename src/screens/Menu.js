@@ -10,9 +10,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  title: {
-    padding: 16,
-  },
 });
 
 const coffee = [
@@ -45,6 +42,21 @@ const sandwiches = [
   },
 ];
 
+const cakes = [
+  {
+    id  : '3001',
+    name: 'Mango cheesecake',
+  },
+  {
+    id  : '3002',
+    name: 'Lemon tart',
+  },
+  {
+    id  : '3003',
+    name: 'Custard tart',
+  },
+];
+
 export default class Menu extends Component {
   static options() {
     return {
@@ -59,10 +71,9 @@ export default class Menu extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={[material.title, styles.title]}>Coffee</Text>
-        <ItemSlider items={coffee} />
-        <Text style={[material.title, styles.title]}>Sandwiches</Text>
-        <ItemSlider items={sandwiches} />
+        <ItemSlider items={coffee} title="Coffee" />
+        <ItemSlider items={sandwiches} title="Sandwiches" />
+        <ItemSlider items={cakes} title="Cakes" />
       </ScrollView>
     );
   }

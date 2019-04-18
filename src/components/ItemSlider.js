@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import {
   Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
@@ -11,10 +11,8 @@ const NUM_ITEMS = 2.5; // Only partially show the third one.
 const ITEM_SIZE = (SCREEN_WIDTH - (8 * 3)) / NUM_ITEMS; // Margin of 8 per item.
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
-  item: {
+  container: {},
+  item     : {
     width           : ITEM_SIZE,
     height          : ITEM_SIZE,
     backgroundColor : materialColors.whitePrimary,
@@ -26,6 +24,11 @@ const styles = StyleSheet.create({
     justifyContent  : 'center',
     marginBottom    : 24,
     marginTop       : 8,
+  },
+  title: {
+    paddingHorizontal: 16,
+    paddingBottom    : 8,
+    paddingTop       : 16,
   },
 });
 
@@ -39,10 +42,12 @@ export default class ItemSlider extends PureComponent {
         description: PropTypes.string,
       }),
     ),
+    title: PropTypes.string,
   };
 
   static defaultProps = {
     items: [],
+    title: undefined,
   };
 
   keyExtractor = ({ id }) => id
@@ -54,17 +59,20 @@ export default class ItemSlider extends PureComponent {
   )
 
   render() {
-    const { items } = this.props;
+    const { items, title } = this.props;
 
     return (
-      <FlatList
-        style={styles.container}
-        data={items}
-        keyExtractor={this.keyExtractor}
-        renderItem={this.renderItem}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      />
+      <Fragment>
+        { title && <Text style={[material.title, styles.title]}>{title}</Text> }
+        <FlatList
+          style={styles.container}
+          data={items}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
+      </Fragment>
     );
   }
 }
