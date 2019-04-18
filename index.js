@@ -1,5 +1,5 @@
 import { Navigation } from 'react-native-navigation';
-import { materialColors, material } from 'react-native-typography';
+import { materialColors } from 'react-native-typography';
 
 import App from './src/App';
 import { iconsLoaded, iconsMap } from './src/helpers/icons';
