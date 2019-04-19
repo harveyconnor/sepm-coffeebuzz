@@ -48,6 +48,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                 children: [
                   {
                     component: {
+                      id     : MENU_SCREEN,
                       name   : MENU_SCREEN,
                       options: {
                         bottomTab: {
@@ -63,6 +64,7 @@ Navigation.events().registerAppLaunchedListener(() => {
             },
             {
               component: {
+                id     : SETTINGS_SCREEN,
                 name   : SETTINGS_SCREEN,
                 options: {
                   bottomTab: {
@@ -75,6 +77,7 @@ Navigation.events().registerAppLaunchedListener(() => {
             },
             {
               component: {
+                id     : CART_SCREEN,
                 name   : CART_SCREEN,
                 options: {
                   bottomTab: {

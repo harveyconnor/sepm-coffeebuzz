@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import {
-  View, ScrollView, Text, StyleSheet,
+  ScrollView, StyleSheet,
 } from 'react-native';
-import { material, materialColors } from 'react-native-typography';
+import { Navigation } from 'react-native-navigation';
+
+import { MENU_SCREEN, ITEM_SCREEN } from '.';
 
 import ItemSlider from '../components/ItemSlider';
 
 const coffeeImage = require('../assets/demo/coffee.jpg');
 const sandwichImage = require('../assets/demo/sandwich.jpg');
 const cakeImage = require('../assets/demo/cake.jpg');
+
+function pushItemScreen(passProps, componentId = MENU_SCREEN) {
+  Navigation.push(componentId, {
+    component: {
+      id  : ITEM_SCREEN,
+      name: ITEM_SCREEN,
+      passProps,
+    },
+  });
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -22,12 +34,22 @@ const coffee = [
     name       : 'Cappuccino',
     image      : coffeeImage,
     description: 'A popular choice of coffee',
+    onPress    : () => pushItemScreen({
+      name       : 'Cappuccino',
+      image      : coffeeImage,
+      description: 'A popular choice of coffee',
+    }),
   },
   {
     id         : '1002',
     name       : 'Latte',
     image      : coffeeImage,
     description: 'A common flavour',
+    onPress    : () => pushItemScreen({
+      name       : 'Latte',
+      image      : coffeeImage,
+      description: 'A common flavour',
+    }),
   },
   {
     id   : '1003',
