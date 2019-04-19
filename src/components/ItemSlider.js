@@ -60,14 +60,17 @@ export default class ItemSlider extends PureComponent {
         name       : PropTypes.string.isRequired,
         image      : PropTypes.any,
         description: PropTypes.string,
+        onPress    : PropTypes.func,
       }),
     ),
-    title: PropTypes.string,
+    title  : PropTypes.string,
+    onPress: PropTypes.func,
   };
 
   static defaultProps = {
-    items: [],
-    title: undefined,
+    items  : [],
+    title  : undefined,
+    onPress: undefined,
   };
 
   keyExtractor = ({ id }) => id
@@ -83,12 +86,12 @@ export default class ItemSlider extends PureComponent {
   )
 
   render() {
-    const { items, title } = this.props;
+    const { items, title, onPress } = this.props;
 
     return (
       <Fragment>
         { title && (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <View style={styles.header}>
             <Text style={[material.title, styles.title]}>{title}</Text>
             <Text style={material.button}>VIEW MORE</Text>
