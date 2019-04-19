@@ -76,7 +76,7 @@ export default class ItemSlider extends PureComponent {
   keyExtractor = ({ id }) => id
 
   renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={item.onPress}>
       <Image resizeMode="cover" style={styles.thumbnail} source={item.image} />
       <View style={styles.captionContainer}>
         <Text style={styles.caption}>{item.name.toUpperCase()}</Text>
