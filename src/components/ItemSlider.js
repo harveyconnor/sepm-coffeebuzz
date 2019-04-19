@@ -88,12 +88,12 @@ export default class ItemSlider extends PureComponent {
     return (
       <Fragment>
         { title && (
+        <TouchableOpacity>
           <View style={styles.header}>
             <Text style={[material.title, styles.title]}>{title}</Text>
-            <TouchableOpacity>
-              <Text style={material.button}>VIEW MORE</Text>
-            </TouchableOpacity>
+            <Text style={material.button}>VIEW MORE</Text>
           </View>
+        </TouchableOpacity>
         )}
         <FlatList
           style={styles.container}
