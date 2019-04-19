@@ -65,7 +65,7 @@ const cakes = [
   },
   {
     id   : '3003',
-    name : 'Custard tart',
+    name : 'Custard tart cake',
     image: cakeImage,
   },
 ];

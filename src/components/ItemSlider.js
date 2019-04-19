@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     borderRadius    : 8,
     marginHorizontal: 16,
     paddingBottom   : 16,
-    alignItems      : 'center',
+    alignItems      : 'flex-start',
     justifyContent  : 'center',
     marginBottom    : 24,
     marginTop       : 8,
@@ -30,8 +30,11 @@ const styles = StyleSheet.create({
     height: ITEM_SIZE,
     width : ITEM_SIZE,
   },
+  captionContainer: {
+    flex      : 1,
+    paddingTop: 16,
+  },
   caption: {
-    paddingTop       : 16,
     paddingHorizontal: 16,
   },
   header: {
@@ -66,8 +69,10 @@ export default class ItemSlider extends PureComponent {
 
   renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item}>
-      <Image resizeMethod="scale" resizeMode="cover" style={styles.thumbnail} source={item.image} />
-      <Text style={[material.button, styles.caption]}>{item.name.toUpperCase()}</Text>
+      <Image resizeMode="cover" style={styles.thumbnail} source={item.image} />
+      <View style={styles.captionContainer}>
+        <Text style={[material.button, styles.caption]}>{item.name.toUpperCase()}</Text>
+      </View>
     </TouchableOpacity>
   )
 
