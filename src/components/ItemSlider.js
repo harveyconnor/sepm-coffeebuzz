@@ -91,7 +91,7 @@ export default class ItemSlider extends PureComponent {
           <View style={styles.header}>
             <Text style={[material.title, styles.title]}>{title}</Text>
             <TouchableOpacity>
-              <Text style={material.button}>VIEW ALL</Text>
+              <Text style={material.button}>VIEW MORE</Text>
             </TouchableOpacity>
           </View>
         )}
