@@ -31,11 +31,13 @@ const styles = StyleSheet.create({
     width : ITEM_SIZE,
   },
   captionContainer: {
-    flex      : 1,
-    paddingTop: 16,
+    flex             : 1,
+    paddingTop       : 16,
+    flexWrap         : 'wrap',
+    paddingHorizontal: 16,
   },
   caption: {
-    paddingHorizontal: 16,
+    ...material.buttonObject,
   },
   header: {
     flexDirection    : 'row',
@@ -44,6 +46,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom    : 8,
     paddingTop       : 16,
+  },
+  description: {
+    ...material.captionObject,
   },
 });
 
@@ -71,7 +76,8 @@ export default class ItemSlider extends PureComponent {
     <TouchableOpacity style={styles.item}>
       <Image resizeMode="cover" style={styles.thumbnail} source={item.image} />
       <View style={styles.captionContainer}>
-        <Text style={[material.button, styles.caption]}>{item.name.toUpperCase()}</Text>
+        <Text style={styles.caption}>{item.name.toUpperCase()}</Text>
+        { item.description && <Text style={styles.description}>{item.description}</Text> }
       </View>
     </TouchableOpacity>
   )

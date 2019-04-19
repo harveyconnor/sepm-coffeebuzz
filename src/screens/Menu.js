@@ -18,14 +18,16 @@ const styles = StyleSheet.create({
 
 const coffee = [
   {
-    id   : '1001',
-    name : 'Cappuccino',
-    image: coffeeImage,
+    id         : '1001',
+    name       : 'Cappuccino',
+    image      : coffeeImage,
+    description: 'A popular choice of coffee',
   },
   {
-    id   : '1002',
-    name : 'Latte',
-    image: coffeeImage,
+    id         : '1002',
+    name       : 'Latte',
+    image      : coffeeImage,
+    description: 'A common flavour',
   },
   {
     id   : '1003',
