@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import {
-  Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View,
+  Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View, Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { materialColors, material } from 'react-native-typography';
@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
   container: {},
   item     : {
     width           : ITEM_SIZE,
-    height          : ITEM_SIZE,
     backgroundColor : materialColors.whitePrimary,
     elevation       : 10,
     borderRadius    : 8,
@@ -24,8 +23,21 @@ const styles = StyleSheet.create({
     justifyContent  : 'center',
     marginBottom    : 24,
     marginTop       : 8,
+    overflow        : 'hidden',
   },
-  title: {
+  title    : {},
+  thumbnail: {
+    height: ITEM_SIZE,
+    width : ITEM_SIZE,
+  },
+  caption: {
+    paddingTop       : 16,
+    paddingHorizontal: 16,
+  },
+  header: {
+    flexDirection    : 'row',
+    alignItems       : 'center',
+    justifyContent   : 'space-between',
     paddingHorizontal: 16,
     paddingBottom    : 8,
     paddingTop       : 16,
@@ -38,7 +50,7 @@ export default class ItemSlider extends PureComponent {
       PropTypes.shape({
         id         : PropTypes.string.isRequired,
         name       : PropTypes.string.isRequired,
-        image      : PropTypes.string,
+        image      : PropTypes.any,
         description: PropTypes.string,
       }),
     ),
@@ -54,7 +66,8 @@ export default class ItemSlider extends PureComponent {
 
   renderItem = ({ item }) => (
     <TouchableOpacity style={styles.item}>
-      <Text style={material.button}>{item.name.toUpperCase()}</Text>
+      <Image resizeMethod="scale" resizeMode="cover" style={styles.thumbnail} source={item.image} />
+      <Text style={[material.button, styles.caption]}>{item.name.toUpperCase()}</Text>
     </TouchableOpacity>
   )
 
@@ -63,7 +76,14 @@ export default class ItemSlider extends PureComponent {
 
     return (
       <Fragment>
-        { title && <Text style={[material.title, styles.title]}>{title}</Text> }
+        { title && (
+          <View style={styles.header}>
+            <Text style={[material.title, styles.title]}>{title}</Text>
+            <TouchableOpacity>
+              <Text style={material.button}>VIEW ALL</Text>
+            </TouchableOpacity>
+          </View>
+        )}
         <FlatList
           style={styles.container}
           data={items}

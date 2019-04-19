@@ -6,6 +6,10 @@ import { material, materialColors } from 'react-native-typography';
 
 import ItemSlider from '../components/ItemSlider';
 
+const coffeeImage = require('../assets/demo/coffee.jpg');
+const sandwichImage = require('../assets/demo/sandwich.jpg');
+const cakeImage = require('../assets/demo/cake.jpg');
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -14,46 +18,55 @@ const styles = StyleSheet.create({
 
 const coffee = [
   {
-    id  : '1001',
-    name: 'Cappuccino',
+    id   : '1001',
+    name : 'Cappuccino',
+    image: coffeeImage,
   },
   {
-    id  : '1002',
-    name: 'Latte',
+    id   : '1002',
+    name : 'Latte',
+    image: coffeeImage,
   },
   {
-    id  : '1003',
-    name: 'Espresso',
+    id   : '1003',
+    name : 'Espresso',
+    image: coffeeImage,
   },
 ];
 
 const sandwiches = [
   {
-    id  : '2001',
-    name: 'Ham & Cheese',
+    id   : '2001',
+    name : 'Ham & Cheese',
+    image: sandwichImage,
   },
   {
-    id  : '2002',
-    name: 'Schnitzel',
+    id   : '2002',
+    name : 'Schnitzel',
+    image: sandwichImage,
   },
   {
-    id  : '2003',
-    name: 'Turkey breast',
+    id   : '2003',
+    name : 'Turkey breast',
+    image: sandwichImage,
   },
 ];
 
 const cakes = [
   {
-    id  : '3001',
-    name: 'Mango cheesecake',
+    id   : '3001',
+    name : 'Mango cheesecake',
+    image: cakeImage,
   },
   {
-    id  : '3002',
-    name: 'Lemon tart',
+    id   : '3002',
+    name : 'Lemon tart',
+    image: cakeImage,
   },
   {
-    id  : '3003',
-    name: 'Custard tart',
+    id   : '3003',
+    name : 'Custard tart',
+    image: cakeImage,
   },
 ];
 
