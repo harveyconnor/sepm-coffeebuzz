@@ -2,14 +2,15 @@ import React from 'react';
 import {
   Dimensions, View, Image, Text, StyleSheet,
 } from 'react-native';
-import { material, materialColors } from 'react-native-typography';
+import { material } from 'react-native-typography';
 import PropTypes from 'prop-types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   container: {
-    height: 200,
+    height  : 200,
+    overflow: 'hidden',
   },
   imageBacking: {
     ...StyleSheet.absoluteFillObject,

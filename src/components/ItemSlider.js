@@ -3,12 +3,25 @@ import {
   Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View, Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { Navigation } from 'react-native-navigation';
 import { materialColors, material } from 'react-native-typography';
+
+import { MENU_SCREEN, ITEM_SCREEN } from '../screens';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const NUM_ITEMS = 2.5; // Only partially show the third one.
 
 const ITEM_SIZE = (SCREEN_WIDTH - (8 * 3)) / NUM_ITEMS; // Margin of 8 per item.
+
+function pushItemScreen(passProps, componentId = MENU_SCREEN) {
+  Navigation.push(componentId, {
+    component: {
+      id  : ITEM_SCREEN,
+      name: ITEM_SCREEN,
+      passProps,
+    },
+  });
+}
 
 const styles = StyleSheet.create({
   container: {},
@@ -60,7 +73,6 @@ export default class ItemSlider extends PureComponent {
         name       : PropTypes.string.isRequired,
         image      : PropTypes.any,
         description: PropTypes.string,
-        onPress    : PropTypes.func,
       }),
     ),
     title  : PropTypes.string,
@@ -76,7 +88,7 @@ export default class ItemSlider extends PureComponent {
   keyExtractor = ({ id }) => id
 
   renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.item} onPress={item.onPress}>
+    <TouchableOpacity style={styles.item} onPress={() => pushItemScreen(item)}>
       <Image resizeMode="cover" style={styles.thumbnail} source={item.image} />
       <View style={styles.captionContainer}>
         <Text style={styles.caption}>{item.name.toUpperCase()}</Text>
