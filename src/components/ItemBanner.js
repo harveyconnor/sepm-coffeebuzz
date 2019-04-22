@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   image: {
     ...StyleSheet.absoluteFillObject,
     width  : SCREEN_WIDTH,
+    height : 200,
     opacity: 0.5,
   },
   caption: {
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
 const ItemBanner = ({ title, caption, image }) => (
   <View style={styles.container}>
     <View style={styles.imageBacking} />
-    <Image resizeMode="cover" style={styles.image} source={image} />
+    <Image style={styles.image} source={image} />
     <View style={styles.caption}>
       { title && <Text style={material.titleWhite}>{title}</Text> }
       { caption && <Text style={material.subheadingWhite}>{caption}</Text> }
