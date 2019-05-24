@@ -11,6 +11,8 @@ import ItemBanner from '../components/ItemBanner';
 import ItemOptions from '../components/ItemOptions';
 import Button from '../components/Button';
 
+import { CART_SCREEN } from '.';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -52,9 +54,13 @@ export default class Menu extends Component {
 
     cb({ name, options });
 
-    Navigation.mergeOptions(this.props.componentId, {
-      bottomTabs: {
-        currentTabIndex: 2,
+    Navigation.push(this.props.componentId, {
+      component: {
+        id       : CART_SCREEN,
+        name     : CART_SCREEN,
+        passProps: {
+          cart: [{ name, options }],
+        },
       },
     });
   }

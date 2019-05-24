@@ -1,24 +1,62 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, { PureComponent } from 'react';
+import {
+  FlatList, View, Text, StyleSheet, TouchableNativeFeedback,
+} from 'react-native';
+import { material, materialColors } from 'react-native-typography';
+import PropTypes from 'prop-types';
 
-import { CartConsumer } from '../helpers/CartContext';
+import Button from '../components/Button';
 
-export default class Cart extends Component {
-  componentDidUpdate() {
-    console.log('updated');
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  option: {
+    flexDirection    : 'row',
+    padding          : 16,
+    alignSelf        : 'stretch',
+    justifyContent   : 'space-between',
+    alignItems       : 'center',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: materialColors.blackTertiary,
+  },
+  label: {
+    ...material.titleObject,
+  },
+  value: {
+    ...material.titleObject,
+    color: materialColors.blackSecondary,
+  },
+});
+
+export default class Cart extends PureComponent {
+  static options() {
+    return {
+      topBar: {
+        title: {
+          text: 'Cart',
+        },
+      },
+    };
   }
 
   render() {
+    console.log(this.props);
     return (
-      <View>
-        <CartConsumer>
-          { ({ cart }) => {
-            cart.map(item => (
-              <Text key={item.name}>{item.name}</Text>
-            ));
-          }
-        }
-        </CartConsumer>
+      <View style={styles.container}>
+        <View style={styles.container}>
+          { this.props.cart && this.props.cart.map(item => (
+            <View key={item.name} style={styles.option}>
+              <Text style={styles.label}>
+                {`${item.options[0].initialValue}x ${item.name}`}
+              </Text>
+              <Text style={styles.value}>
+                {`$${item.options[0].initialValue * 3.5}0`}
+              </Text>
+            </View>
+          ))}
+        </View>
+        <Button label="CHECKOUT" icon="payment" onPress={() => alert('Handle Checkout')} />
       </View>
     );
   }
