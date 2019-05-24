@@ -3,6 +3,9 @@ import {
   ScrollView, StyleSheet,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { Navigation } from 'react-native-navigation';
+
+import { CartConsumer } from '../helpers/CartContext';
 
 import ItemBanner from '../components/ItemBanner';
 import ItemOptions from '../components/ItemOptions';
@@ -44,6 +47,18 @@ export default class Menu extends Component {
     options    : [],
   }
 
+  handleAddToCart = (cb) => {
+    const { name, options } = this.props;
+
+    cb({ name, options });
+
+    Navigation.mergeOptions(this.props.componentId, {
+      bottomTabs: {
+        currentTabIndex: 2,
+      },
+    });
+  }
+
   render() {
     const {
       name, description, image, options,
@@ -54,7 +69,11 @@ export default class Menu extends Component {
           <ItemBanner title={name} caption={description} image={image} />
           <ItemOptions options={options} />
         </ScrollView>
-        <Button label="ADD TO CART" icon="add-shopping-cart" />
+        <CartConsumer>
+          { ({ addToCart }) => (
+            <Button label="ADD TO CART" icon="add-shopping-cart" onPress={() => this.handleAddToCart(addToCart)} />
+          )}
+        </CartConsumer>
       </Fragment>
     );
   }

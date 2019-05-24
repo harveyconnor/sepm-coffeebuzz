@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import { CartConsumer } from '../helpers/CartContext';
+
 export default class Cart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
+  componentDidUpdate() {
+    console.log('updated');
   }
 
   render() {
     return (
       <View>
-        <Text> textInComponent </Text>
+        <CartConsumer>
+          { ({ cart }) => {
+            cart.map(item => (
+              <Text key={item.name}>{item.name}</Text>
+            ));
+          }
+        }
+        </CartConsumer>
       </View>
     );
   }
