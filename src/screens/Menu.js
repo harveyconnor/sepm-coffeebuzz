@@ -31,47 +31,76 @@ const coffee = [
     name       : 'Latte',
     image      : coffeeImage,
     description: 'A common flavour',
+    options    : [
+      { label: 'Quantity', initialValue: 1 },
+      { label: 'Size', initialValue: 'M', options: ['S', 'M', 'L'] },
+    ],
   },
   {
-    id   : '1003',
-    name : 'Espresso',
-    image: coffeeImage,
+    id     : '1003',
+    name   : 'Espresso',
+    image  : coffeeImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+      { label: 'Size', initialValue: 'M', options: ['S', 'M', 'L'] },
+    ],
   },
 ];
 
 const sandwiches = [
   {
-    id   : '2001',
-    name : 'Ham & Cheese',
-    image: sandwichImage,
+    id     : '2001',
+    name   : 'Ham & Cheese',
+    image  : sandwichImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+      { label: 'Toasted', initialValue: 'Yes', options: ['Yes', 'No'] },
+    ],
   },
   {
-    id   : '2002',
-    name : 'Schnitzel',
-    image: sandwichImage,
+    id     : '2002',
+    name   : 'Schnitzel',
+    image  : sandwichImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+      { label: 'Toasted', initialValue: 'Yes', options: ['Yes', 'No'] },
+    ],
   },
   {
-    id   : '2003',
-    name : 'Turkey breast',
-    image: sandwichImage,
+    id     : '2003',
+    name   : 'Turkey breast',
+    image  : sandwichImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+      { label: 'Toasted', initialValue: 'Yes', options: ['Yes', 'No'] },
+    ],
   },
 ];
 
 const cakes = [
   {
-    id   : '3001',
-    name : 'Mango cheesecake',
-    image: cakeImage,
+    id     : '3001',
+    name   : 'Mango cheesecake',
+    image  : cakeImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+    ],
   },
   {
-    id   : '3002',
-    name : 'Lemon tart',
-    image: cakeImage,
+    id     : '3002',
+    name   : 'Lemon tart',
+    image  : cakeImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+    ],
   },
   {
-    id   : '3003',
-    name : 'Custard tart cake',
-    image: cakeImage,
+    id     : '3003',
+    name   : 'Custard tart cake',
+    image  : cakeImage,
+    options: [
+      { label: 'Quantity', initialValue: 1 },
+    ],
   },
 ];
 
